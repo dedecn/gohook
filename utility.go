@@ -144,6 +144,10 @@ func doCopyFunction(mode int, allowCall bool, from, to uintptr, sz1, sz2 uint32,
 	return sf, nil
 }
 
+func HookFunction(rdxIndirect bool, target, replace, trampoline uintptr) (*CodeInfo, error) {
+	return hookFunction(GetArchMode(), rdxIndirect, target, replace, trampoline)
+}
+
 func hookFunction(mode int, rdxIndirect bool, target, replace, trampoline uintptr) (*CodeInfo, error) {
 	info := &CodeInfo{}
 	jumpcode := genJumpCode(mode, rdxIndirect, replace, target)
