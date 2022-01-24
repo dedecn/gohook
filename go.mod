@@ -1,4 +1,4 @@
-module github.com/brahma-adshonor/gohook
+module github.com/dedecn/gohook
 
 go 1.11
 

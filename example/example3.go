@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/brahma-adshonor/gohook"
+	"github.com/dedecn/gohook"
 )
 
 type base struct {
@@ -80,7 +80,7 @@ func get_id_from(v who) int {
 }
 
 func main() {
-	a := &advance{base:base{id:23},name:"miliao"}
+	a := &advance{base: base{id: 23}, name: "miliao"}
 	fmt.Printf("before hook advance, id:%d\n", a.Id())
 	fmt.Printf("before hook advance, id from interface:%d\n", get_id_from(a))
 
@@ -92,7 +92,7 @@ func main() {
 	fmt.Printf("after hook advance, id:%d\n", a.Id())
 	fmt.Printf("after hook advance, id from interface:%d\n", get_id_from(a))
 
-	b := &base{id:333}
+	b := &base{id: 333}
 	err2 := gohook.HookMethod(b, "Id", MyId, MyIdTrampoline)
 	if err2 != nil {
 		panic(fmt.Sprintf("Hook base instance method failed:%s", err2.Error()))
